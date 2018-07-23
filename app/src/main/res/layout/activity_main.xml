@@ -117,6 +117,6 @@
         app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline_6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/horizontal_guideline_5"/>
+        app:layout_constraintTop_toTopOf="@id/horizontal_guideline_5" />
 
 </android.support.constraint.ConstraintLayout>
