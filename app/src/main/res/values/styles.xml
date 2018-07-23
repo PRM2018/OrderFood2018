@@ -8,4 +8,70 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--Waiter Activity-->
+    <style name="WaiterItem">
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="WaiterItemView">
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="WaiterItemTableNo" parent="WaiterItem">
+        <item name="android:text">@string/tv_table_no</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+    <style name="WaiterItemTableName" parent="WaiterItem">
+        <item name="android:text">@string/tv_table_name</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--Profile Activity-->
+    <style name="ProfileContent">
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_alignStart">@id/tv_user_id</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="ProfileLabel">
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="ProfileButton" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="android:layout_below">@id/tv_label_user_role</item>
+        <item name="android:layout_marginTop">60dp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="ProfileButtonSave" parent="ProfileButton">
+        <item name="android:layout_marginStart">80dp</item>
+    </style>
+
+    <style name="ProfileButtonCancel" parent="ProfileButton">
+        <item name="android:layout_marginEnd">80dp</item>
+        <item name="android:layout_alignParentEnd">true</item>
+    </style>
+
 </resources>

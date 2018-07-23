@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_table"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_table_no"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        style="@style/WaiterItemTableNo"/>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/colorBlack"
+        style="@style/WaiterItemView"/>
+
+    <TextView
+        android:id="@+id/tv_table_name"
+        android:layout_width="225dp"
+        android:layout_height="40dp"
+        android:text="@string/tv_table_name"
+        android:gravity="center_vertical"
+        style="@style/WaiterItemTableName"/>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/colorBlack"
+        style="@style/WaiterItemView"/>
+
+    <ImageView
+        android:id="@+id/iv_table_check"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_uncheck_status"
+        style="@style/WaiterItem"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription"/>
+
+</LinearLayout>
