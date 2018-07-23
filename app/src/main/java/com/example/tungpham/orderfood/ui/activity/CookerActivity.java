@@ -3,6 +3,8 @@ package com.example.tungpham.orderfood.ui.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.tungpham.orderfood.R;
+
 public class CookerActivity extends AppCompatActivity {
 
     @Override
