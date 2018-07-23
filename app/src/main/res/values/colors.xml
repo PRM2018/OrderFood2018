@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="loginBackground">#68992e</color>
+    <color name="loginEditText">#FFFFFF</color>
+    <color name="loginButton">#4267b2</color>
 </resources>
