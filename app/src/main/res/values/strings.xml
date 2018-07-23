@@ -1,7 +1,21 @@
 <resources>
     <string name="app_name">OrderFood</string>
+
     <string name="tv_sign_in">Sign In</string>
     <string name="et_hint_account_name">Account name</string>
     <string name="et_hint_password">Password</string>
     <string name="btn_login">Login</string>
+    <string name="tab_manage_employee">Manage Employee</string>
+    <string name="tab_manage_food">Manage Food</string>
+
+    <string name="tv_label_address">Address:</string>
+    <string name="tv_label_phone_number">Phone:</string>
+    <string name="btn_profile_save">Save</string>
+    <string name="btn_profile_cancel">Cancel</string>
+    <string name="tv_label_role">Role:</string>
+    <string name="menu_profile">Profile</string>
+    <string name="tv_table_no">No</string>
+    <string name="tv_table_name">Table name</string>
+    <string name="btn_add_food">Add food</string>
+    <string name="btn_checkout">Checkout</string>
 </resources>

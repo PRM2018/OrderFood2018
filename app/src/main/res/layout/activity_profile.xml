@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_user"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/img_user"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/tv_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv_user"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@id/iv_user"
+        android:textSize="20sp"
+        tools:text="UserID"/>
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/iv_user"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@id/iv_user"
+        android:textColor="@color/colorRed"
+        android:textSize="28sp"
+        tools:text="Name"/>
+
+    <TextView
+        android:id="@+id/tv_label_user_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_user"
+        android:labelFor="@id/et_user_address"
+        android:text="@string/tv_label_address"
+        style="@style/ProfileLabel"/>
+
+    <EditText
+        android:id="@+id/et_user_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tv_label_user_address"
+        android:layout_toEndOf="@id/tv_label_user_address"
+        android:inputType="text"
+        style="@style/ProfileContent"/>
+
+    <TextView
+        android:id="@+id/tv_label_user_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_label_user_address"
+        android:labelFor="@id/et_user_phone"
+        android:text="@string/tv_label_phone_number"
+        style="@style/ProfileLabel"/>
+
+    <EditText
+        android:id="@+id/et_user_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tv_label_user_phone"
+        android:layout_toEndOf="@id/tv_label_user_phone"
+        android:inputType="phone"
+        style="@style/ProfileContent"/>
+
+    <TextView
+        android:id="@+id/tv_label_user_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_label_user_phone"
+        android:text="@string/tv_label_role"
+        style="@style/ProfileLabel"/>
+
+    <Spinner
+        android:id="@+id/sp_user_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_user_phone"
+        style="@style/ProfileContent"/>
+
+    <Button
+        android:id="@+id/btn_profile_save"
+        style="@style/ProfileButtonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/btn_green_tick"
+        android:text="@string/btn_profile_save" />
+
+    <Button
+        android:id="@+id/btn_profile_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/btn_green_cancel"
+        android:text="@string/btn_profile_cancel"
+        style="@style/ProfileButtonCancel"/>
+
+</RelativeLayout>
