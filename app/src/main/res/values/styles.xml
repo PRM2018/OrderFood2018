@@ -13,34 +13,31 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
     <!--Waiter Activity-->
-    <style name="WaiterItem">
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:layout_marginLeft">10dp</item>
-    </style>
 
-    <style name="WaiterItemView">
-        <item name="android:layout_marginLeft">10dp</item>
-    </style>
-
-    <style name="WaiterItemTableNo" parent="WaiterItem">
+    <style name="ItemNo">
         <item name="android:text">@string/tv_table_no</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/colorBlue</item>
         <item name="android:gravity">center</item>
-
     </style>
 
-    <style name="WaiterItemTableName" parent="WaiterItem">
+    <style name="ItemQuantity" parent="ItemNo">
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="ItemName">
         <item name="android:text">@string/tv_table_name</item>
         <item name="android:textSize">25sp</item>
         <item name="android:textColor">@color/colorRed</item>
+        <item name="android:padding">5dp</item>
         <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:scrollHorizontally">true</item>
     </style>
 
     <!--Profile Activity-->
@@ -74,4 +71,29 @@
         <item name="android:layout_alignParentEnd">true</item>
     </style>
 
+    <!--Table Detail Activity-->
+
+    <style name="TableDetailTextView">
+        <item name="android:textSize">35sp</item>
+    </style>
+
+    <style name="TableDetailButton" parent="Base.TextAppearance.AppCompat.Button">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="TableDetailButtonAddFood" parent="TableDetailButton">
+        <item name="android:background">@color/backgroundTransparentGreen</item>
+        <item name="android:drawableStart">@drawable/ic_add_shopping_cart_white_24dp</item>
+        <item name="android:text">@string/btn_add_food</item>
+    </style>
+
+    <style name="TableDetailButtonCheckout" parent="TableDetailButton">
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:background">@color/colorRed</item>
+        <item name="android:drawableStart">@drawable/ic_shopping_cart_white_24dp</item>
+        <item name="android:text">@string/btn_checkout</item>
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
 </resources>

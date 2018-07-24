@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_table"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -22,7 +21,7 @@
         app:layout_constraintGuide_percent="0.8"/>
 
     <TextView
-        android:id="@+id/tv_table_no"
+        android:id="@+id/tv_item_no"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +40,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/tv_table_name"
+        android:id="@+id/tv_item_name"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center_vertical"
@@ -61,16 +60,15 @@
         app:layout_constraintStart_toStartOf="@id/vertical_guideline_2"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/iv_table_check"
+    <TextView
+        android:id="@+id/iv_item_number"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_uncheck_status"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/vertical_guideline_2"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription"/>
+        tools:text="40"
+        style="@style/ItemQuantity"/>
 
 </android.support.constraint.ConstraintLayout>
