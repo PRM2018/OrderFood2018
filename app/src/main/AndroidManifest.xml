@@ -31,6 +31,8 @@
         <activity android:name=".ui.activity.CookerActivity">
         </activity>
         <activity android:name=".ui.activity.EmployeeActivity"></activity>
+        <activity android:name=".ui.activity.TableDetailActivity">
+        </activity>
     </application>
 
 </manifest>

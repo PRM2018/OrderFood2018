@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.example.tungpham.orderfood.ui.fragment.EmployeeFragment;
 import com.example.tungpham.orderfood.ui.fragment.FoodFragment;
 
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
+public class AdminPagerAdapter extends FragmentPagerAdapter {
 
-    public SectionsPagerAdapter(FragmentManager fm) {
+    public AdminPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -19,6 +19,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return new EmployeeFragment();
             default:
                 return new FoodFragment();
+        }
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position) {
+            case 0:
+                return "Manage Employee";
+            default:
+                return "Manage Food";
         }
     }
 
