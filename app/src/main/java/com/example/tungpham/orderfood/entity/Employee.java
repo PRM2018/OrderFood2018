@@ -61,4 +61,9 @@ public class Employee {
     public void setEmpType(int empType) {
         this.empType = empType;
     }
+
+    @Override
+    public String toString() {
+        return  empName;
+    }
 }

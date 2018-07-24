@@ -27,4 +27,26 @@ public class EmployeeTypeModel {
             } catch (SQLException e) { /* ignored */}
         }
     }
+
+    public String getEmpTypeName(int empTypeId){
+        String roleName="";
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select roleName from RoleTBL where roleId="+empTypeId;
+        try{
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()){
+                roleName=rs.getString("roleName");
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }finally {
+            closeConnection(con,ps,rs);
+        }
+        return roleName;
+    }
 }

@@ -5,4 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.FoodFragment">
 
+    <ListView
+        android:id="@+id/lv_food"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>
