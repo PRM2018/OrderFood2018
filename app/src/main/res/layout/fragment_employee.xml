@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.EmployeeFragment">
 
     <ListView
-        android:id="@+id/lv_employee"
-        android:layout_width="403dp"
-        android:layout_height="418dp" />
+        android:id="@+id/lv_employee_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btn_go_addEmployeePage"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_add_employee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Employee" />
-</FrameLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_add_white_24dp"/>
+
+</RelativeLayout>

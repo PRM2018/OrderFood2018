@@ -4,11 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.tungpham.orderfood.R;
 
-public class ProfileActivity extends AppCompatActivity {
+public class TableDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_food_order);
+        setContentView(R.layout.activity_table_detail);
     }
 }
