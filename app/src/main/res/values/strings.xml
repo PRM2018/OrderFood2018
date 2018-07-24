@@ -19,5 +19,10 @@
     <string name="btn_add_food">Add food</string>
     <string name="btn_checkout">Checkout</string>
     <string name="tv_table_detail_cus_id_base">ID:</string>
-    <string name="tv_food_name">Food name</string>
+    <string name="tv_food_name">Name</string>
+    <string name="tv_food_order_quantity">Q.</string>
+    <string name="tv_food_order_price">Price</string>
+    <string name="tv_new_employee">New Employee</string>
+    <string name="et_name">Name:</string>
+    <string name="btn_add_new_employee">Add New Employee</string>
 </resources>

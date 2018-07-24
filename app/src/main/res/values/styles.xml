@@ -96,4 +96,26 @@
         <item name="android:text">@string/btn_checkout</item>
         <item name="android:textColor">@color/colorBlue</item>
     </style>
+
+    <!--Add employee Activity-->
+
+    <style name="AddEmployeeActivity">
+        <item name="android:layout_margin">15dp</item>
+    </style>
+
+    <style name="AddEmployeeTextView" parent="AddEmployeeActivity">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AddEmployeeLabel" parent="AddEmployeeActivity">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="AddEmployeeEditText" parent="AddEmployeeActivity">
+        <item name="android:textSize">25sp</item>
+    </style>
+
 </resources>

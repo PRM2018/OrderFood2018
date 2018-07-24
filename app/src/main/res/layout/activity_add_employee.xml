@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundTransparentGreen"
+    tools:context=".ui.activity.AddEmployeeActivity">
+
+    <TextView
+        android:id="@+id/tv_add_employee_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_new_employee"
+        style="@style/AddEmployeeTextView"/>
+
+    <EditText
+        android:id="@+id/et_add_employee_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_add_employee_label"
+        android:hint="@string/et_name"
+        android:inputType="text"
+        style="@style/AddEmployeeEditText"/>
+
+    <TextView
+        android:id="@+id/tv_label_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_employee_name"
+        android:text="@string/tv_label_role"
+        style="@style/AddEmployeeLabel"/>
+
+    <Spinner
+        android:id="@+id/spinner_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_employee_name"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@id/tv_label_role"/>
+
+    <EditText
+        android:id="@+id/et_add_employee_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_role"
+        android:hint="@string/tv_label_address"
+        android:inputType="text"
+        style="@style/AddEmployeeEditText"/>
+
+    <EditText
+        android:id="@+id/et_add_employee_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_employee_address"
+        android:hint="@string/tv_label_phone_number"
+        android:inputType="phone"
+        style="@style/AddEmployeeEditText"/>
+
+    <Button
+        android:id="@+id/btn_add_new_employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_employee_phone"
+        android:text="@string/btn_add_new_employee"
+        style="@style/AddEmployeeActivity"/>
+
+</RelativeLayout>
