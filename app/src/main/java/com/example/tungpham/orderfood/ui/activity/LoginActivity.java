@@ -35,14 +35,17 @@ public class LoginActivity extends AppCompatActivity {
                     String acc=et_username.getText().toString();
                     String pass=et_password.getText().toString();
                     boolean checkExit=am.checkAccountAndPass(acc,pass);
+                    int empID = am.getAccountInfo(acc,pass);
                     if(checkExit==true){
                         int checkRole=am.checkRole(acc);
                         if(checkRole==1) {
                             Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
                             startActivity(intent);
                         }
-                        if(checkRole==2) {
-                            Intent intent = new Intent(getApplicationContext(), EmployeeActivity.class);
+                        if(checkRole==2 || checkRole == 3) {
+                            Intent intent = new Intent(getApplicationContext(), WaiterActivity.class);
+                            intent.putExtra("empID",empID);
+
                             startActivity(intent);
                         }
                     }

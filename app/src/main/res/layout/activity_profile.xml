@@ -91,6 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/btn_green_tick"
+        android:onClick="saveInfo"
         android:text="@string/btn_profile_save" />
 
     <Button

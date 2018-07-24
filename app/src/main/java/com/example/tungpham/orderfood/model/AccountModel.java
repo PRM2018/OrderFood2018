@@ -1,5 +1,7 @@
 package com.example.tungpham.orderfood.model;
 
+import com.example.tungpham.orderfood.entity.Account;
+
 import java.security.BasicPermission;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -82,5 +84,28 @@ public class AccountModel {
             closeConnection(con, ps, rs);
         }
         return roleId;
+    }
+
+    public int getAccountInfo(String acc, String pass){
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int idEmp = 0;
+        try{
+            String sql = "select * from AccountTBL where account like ? and pass like ?";
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1,acc);
+            ps.setString(2,pass);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                idEmp = rs.getInt("eId");
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }finally {
+            closeConnection(con,ps,rs);
+        }
+        return idEmp;
     }
 }

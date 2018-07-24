@@ -10,6 +10,7 @@ public class Employee {
     private String empAddress;
     private String empPhone;
     private int empType;
+    private String roleName;
 
     public Employee() {
     }
@@ -60,5 +61,13 @@ public class Employee {
 
     public void setEmpType(int empType) {
         this.empType = empType;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }
