@@ -35,6 +35,7 @@
         <item name="android:text">@string/tv_table_name</item>
         <item name="android:textSize">25sp</item>
         <item name="android:textColor">@color/colorRed</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:padding">5dp</item>
         <item name="android:gravity">center</item>
         <item name="android:singleLine">true</item>
