@@ -5,6 +5,7 @@ package com.example.tungpham.orderfood.entity;
  */
 
 public class Food {
+    private int rn;
     private int foodID;
     private String foodName;
     private int foodQuantity;
@@ -70,5 +71,13 @@ public class Food {
 
     public void setFoodDescription(String foodDescription) {
         this.foodDescription = foodDescription;
+    }
+
+    public int getRn() {
+        return rn;
+    }
+
+    public void setRn(int rn) {
+        this.rn = rn;
     }
 }
