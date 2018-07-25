@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundTransparentGreen"
+    tools:context=".ui.activity.AddEmployeeActivity">
+
+    <TextView
+        android:id="@+id/tv_edit_food_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_new_food"
+        style="@style/AddEmployeeTextView"/>
+
+    <EditText
+        android:id="@+id/et_add_food_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_edit_food_name"
+        android:hint="@string/tv_food_name"
+        android:inputType="text"
+        style="@style/AddEmployeeEditText"/>
+
+    <EditText
+        android:id="@+id/et_add_food_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_food_name"
+        android:hint="@string/tv_food_order_quantity"
+        android:inputType="number"
+        style="@style/AddEmployeeEditText"/>
+
+    <EditText
+        android:id="@+id/et_add_food_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_food_quantity"
+        android:hint="@string/tv_add_food_price"
+        android:inputType="numberDecimal"
+        style="@style/AddEmployeeEditText"/>
+
+    <EditText
+        android:id="@+id/et_add_food_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_food_price"
+        android:hint="@string/tv_add_food_description"
+        android:inputType="text"
+        style="@style/AddEmployeeEditText"/>
+
+    <Button
+        android:id="@+id/btn_add_new_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_food_description"
+        android:text="@string/btn_edit_food_confirm"
+        style="@style/AddEmployeeActivity"/>
+
+</RelativeLayout>

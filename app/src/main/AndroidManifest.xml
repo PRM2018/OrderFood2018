@@ -32,8 +32,19 @@
             android:name=".ui.activity.TableDetailActivity"
             android:exported="true">
         </activity>
-        <activity android:name=".ui.activity.AddEmployeeActivity"
+        <activity
+            android:name=".ui.activity.AddEmployeeActivity"
             android:exported="true">
+        </activity>
+        <activity
+            android:name=".ui.activity.AddFoodActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ui.activity.EditFoodActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".ui.activity.CheckoutActivity">
         </activity>
     </application>
 
