@@ -129,4 +129,94 @@ public class CustomerModel {
         }
         return lstOrder;
     }
+
+    public boolean updateOrderCustomer(int cusID, int foodID, int quantity) {
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            String sql = "UPDATE OrderTBL SET orderQuantity = ? where foodId = ? and customerId = ?";
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,quantity);
+            ps.setInt(2,foodID);
+            ps.setInt(3,cusID);
+            ps.executeUpdate();
+            check = true;
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }finally {
+            closeConnection(con,ps,null);
+        }
+        return check;
+    }
+
+    public boolean insertNewOrder(int cusID, int foodID, int quantity){
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            String sql = "INSERT INTO OrderTBL (customerId,foodId,orderQuantity,orderDate) values (?,?,?,SYSDATETIME ( ))";
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,cusID);
+            ps.setInt(2,foodID);
+            ps.setInt(3,quantity);
+            ps.executeUpdate();
+            check = true;
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }finally {
+            closeConnection(con,ps,null);
+        }
+        return check;
+    }
+
+    public int checkExistOrder(int cusID, int foodID) {
+        int count = 0;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT count(*) as count FROM OrderTBL WHERE customerId = ? AND foodId = ?";
+        try {
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, cusID);
+            ps.setInt(2, foodID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            closeConnection(con, ps, null);
+        }
+        return count;
+    }
+
+    public int getQuantityOrder(int cusID, int foodID){
+        int quantity = 0;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            String sql = "select orderQuantity from OrderTBL where customerId = ? and foodId = ?";
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,cusID);
+            ps.setInt(2,foodID);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                quantity = rs.getInt(1);
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }finally {
+            closeConnection(con,ps,rs);
+        }
+        return quantity;
+    }
 }

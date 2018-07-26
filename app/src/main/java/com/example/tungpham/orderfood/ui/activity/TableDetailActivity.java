@@ -19,6 +19,7 @@ public class TableDetailActivity extends AppCompatActivity {
     private TableModel tm;
     private TextView textView;
     private int cusID;
+    private int tableID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class TableDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_table_detail);
 
         Intent intent = getIntent();
-        int tableID = intent.getIntExtra("tableID", 1);
+        tableID = intent.getIntExtra("tableID", 1);
         cusID = intent.getIntExtra("cusID", 1);
         tm = new TableModel();
         Customer customer = new Customer();
@@ -53,13 +54,30 @@ public class TableDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        CustomerModel cm = new CustomerModel();
         if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
-                ArrayList<Integer> test = data.getIntegerArrayListExtra("TEST");
-                for (int i : test) {
-                    Log.d(TableDetailActivity.class.getSimpleName(), String.valueOf(i));
+                ArrayList<Integer> listQuantity = data.getIntegerArrayListExtra("listOrder");
+                ArrayList<Integer> listIdFood = data.getIntegerArrayListExtra("listOrderFoodID");
+
+                for (int i = 0; i < listQuantity.size();i++){
+                    if(listQuantity.get(i) != 0){
+                        int idFood = listIdFood.get(i);
+                        int quantity = listQuantity.get(i);
+
+                        int check = cm.checkExistOrder(cusID,idFood);
+                        if(check == 0){
+                            boolean insert = cm.insertNewOrder(cusID,idFood,quantity);
+                        }else if(check > 0){
+                            int oldQuantity = cm.getQuantityOrder(cusID,idFood);
+                            boolean update = cm.updateOrderCustomer(cusID,idFood,oldQuantity+quantity);
+                        }
+
+                    }
                 }
             }
         }
+        setAdapter(cusID,tableID);
+
     }
 }

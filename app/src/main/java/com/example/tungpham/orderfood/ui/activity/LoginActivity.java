@@ -17,40 +17,41 @@ public class LoginActivity extends AppCompatActivity {
     EditText et_username;
     EditText et_password;
     Button btn_login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_login=findViewById(R.id.btn_login);
-        et_username=findViewById(R.id.et_username);
-        et_password=findViewById(R.id.et_password);
+        btn_login = findViewById(R.id.btn_login);
+        et_username = findViewById(R.id.et_username);
+        et_password = findViewById(R.id.et_password);
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    AccountModel am=new AccountModel();
-                    String acc=et_username.getText().toString();
-                    String pass=et_password.getText().toString();
-                    boolean checkExit=am.checkAccountAndPass(acc,pass);
-                    int empID = am.getAccountInfo(acc,pass);
-                    if(checkExit==true){
-                        int checkRole=am.checkRole(acc);
-                        if(checkRole==1) {
+                    AccountModel am = new AccountModel();
+                    String acc = et_username.getText().toString();
+                    String pass = et_password.getText().toString();
+                    boolean checkExit = am.checkAccountAndPass(acc, pass);
+                    int empID = am.getAccountInfo(acc, pass);
+                    if (checkExit == true) {
+                        int checkRole = am.checkRole(acc);
+                        if (checkRole == 1) {
                             Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
                             startActivity(intent);
                         }
-                        if(checkRole==2 || checkRole == 3) {
+                        if (checkRole == 2 || checkRole == 3) {
                             Intent intent = new Intent(getApplicationContext(), WaiterActivity.class);
-                            intent.putExtra("empID",empID);
+                            intent.putExtra("empID", empID);
 
                             startActivity(intent);
                         }
                     }
-                    if(checkExit==false){
-                        Toast.makeText(getApplicationContext(),"Wrong account or pass",Toast.LENGTH_LONG).show();
+                    if (checkExit == false) {
+                        Toast.makeText(getApplicationContext(), "Wrong account or pass", Toast.LENGTH_LONG).show();
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
