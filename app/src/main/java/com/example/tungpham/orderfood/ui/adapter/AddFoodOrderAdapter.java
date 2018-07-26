@@ -17,6 +17,7 @@ import com.travijuu.numberpicker.library.Enums.ActionEnum;
 import com.travijuu.numberpicker.library.Interface.ValueChangedListener;
 import com.travijuu.numberpicker.library.NumberPicker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,14 +28,10 @@ public class AddFoodOrderAdapter extends ArrayAdapter<Food> {
     private Context context;
     private int resource;
     private List<Food> arrOrder;
-    int quantity = 0;
+    private ArrayList<Integer> quantityList = new ArrayList<>();
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public ArrayList<Integer> getQuantityList() {
+        return quantityList;
     }
 
     public AddFoodOrderAdapter(@NonNull Context context, int resource, @NonNull List<Food> objects) {
@@ -42,6 +39,10 @@ public class AddFoodOrderAdapter extends ArrayAdapter<Food> {
         this.context = context;
         this.resource = resource;
         this.arrOrder = objects;
+
+        for(int i = 0; i < arrOrder.size(); i++) {
+            quantityList.add(0);
+        }
     }
 
     @NonNull
@@ -57,7 +58,6 @@ public class AddFoodOrderAdapter extends ArrayAdapter<Food> {
             viewHolder.addQuantity = convertView.findViewById(R.id.np_order_food_quantity);
             viewHolder.totalPrice = convertView.findViewById(R.id.tv_order_food_price_total);
 
-            quantity = viewHolder.addQuantity.getValue();
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -66,17 +66,18 @@ public class AddFoodOrderAdapter extends ArrayAdapter<Food> {
         viewHolder.no.setText(String.valueOf(orderFood.getRn()));
         viewHolder.foodName.setText(orderFood.getFoodName());
         viewHolder.foodPrice.setText(String.valueOf(orderFood.getFoodPrice()));
-        valueChange(viewHolder.addQuantity, viewHolder.foodPrice, viewHolder.totalPrice);
+        valueChange(position, viewHolder.addQuantity, viewHolder.foodPrice, viewHolder.totalPrice);
 
         return convertView;
     }
 
     // Example for item_order_food_number_picker
-    private void valueChange(NumberPicker numberPicker, TextView tvPrice, TextView tvTotal) {
+    private void valueChange(int position, NumberPicker numberPicker, TextView tvPrice, TextView tvTotal) {
         numberPicker.setValue(0);
         numberPicker.setValueChangedListener(new ValueChangedListener() {
             @Override
             public void valueChanged(int value, ActionEnum action) {
+                quantityList.set(position, value);
                 double price = Double.parseDouble(tvPrice.getText().toString());
                 tvTotal.setText(String.valueOf(price * value));
             }
