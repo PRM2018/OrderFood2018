@@ -102,4 +102,14 @@
         android:text="@string/btn_profile_cancel"
         style="@style/ProfileButtonCancel"/>
 
+    <Button
+        android:id="@+id/btn_add_food"
+        style="@style/TableDetailLogoutAddFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/et_user_phone"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="7dp"
+        android:onClick="loutOutBtn" />
+
 </RelativeLayout>

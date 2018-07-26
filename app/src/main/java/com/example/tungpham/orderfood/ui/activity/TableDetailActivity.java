@@ -107,4 +107,9 @@ public class TableDetailActivity extends AppCompatActivity {
         intent.putExtra("tableID", tableID);
         startActivity(intent);
     }
+
+    public void backOrder(View view){
+        Intent intent = new Intent(this,WaiterActivity.class);
+        startActivity(intent);
+    }
 }

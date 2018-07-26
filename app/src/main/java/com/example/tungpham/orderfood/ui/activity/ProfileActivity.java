@@ -134,4 +134,10 @@ public class ProfileActivity extends AppCompatActivity {
         }
         finish();
     }
+
+    public void loutOutBtn(View v){
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
