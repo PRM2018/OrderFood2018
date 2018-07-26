@@ -29,9 +29,18 @@ public class AddFoodOrderAdapter extends ArrayAdapter<Food> {
     private int resource;
     private List<Food> arrOrder;
     private ArrayList<Integer> quantityList = new ArrayList<>();
+    private ArrayList<Integer> quantityListID = new ArrayList<>();
 
     public ArrayList<Integer> getQuantityList() {
         return quantityList;
+    }
+
+    public ArrayList<Integer> getQuantityListID() {
+        return quantityListID;
+    }
+
+    public void setQuantityListID(ArrayList<Integer> quantityListID) {
+        this.quantityListID = quantityListID;
     }
 
     public AddFoodOrderAdapter(@NonNull Context context, int resource, @NonNull List<Food> objects) {
@@ -42,6 +51,10 @@ public class AddFoodOrderAdapter extends ArrayAdapter<Food> {
 
         for(int i = 0; i < arrOrder.size(); i++) {
             quantityList.add(0);
+        }
+
+        for (int i = 0;i<arrOrder.size();i++){
+            quantityListID.add(0);
         }
     }
 
@@ -66,17 +79,18 @@ public class AddFoodOrderAdapter extends ArrayAdapter<Food> {
         viewHolder.no.setText(String.valueOf(orderFood.getRn()));
         viewHolder.foodName.setText(orderFood.getFoodName());
         viewHolder.foodPrice.setText(String.valueOf(orderFood.getFoodPrice()));
-        valueChange(position, viewHolder.addQuantity, viewHolder.foodPrice, viewHolder.totalPrice);
-
+        valueChange(position, viewHolder.addQuantity, viewHolder.foodPrice, viewHolder.totalPrice,orderFood.getFoodID());
+        quantityListID.set(position,orderFood.getFoodID());
         return convertView;
     }
 
     // Example for item_order_food_number_picker
-    private void valueChange(int position, NumberPicker numberPicker, TextView tvPrice, TextView tvTotal) {
+    private void valueChange(int position, NumberPicker numberPicker, TextView tvPrice, TextView tvTotal,int foodID) {
         numberPicker.setValue(0);
         numberPicker.setValueChangedListener(new ValueChangedListener() {
             @Override
             public void valueChanged(int value, ActionEnum action) {
+
                 quantityList.set(position, value);
                 double price = Double.parseDouble(tvPrice.getText().toString());
                 tvTotal.setText(String.valueOf(price * value));

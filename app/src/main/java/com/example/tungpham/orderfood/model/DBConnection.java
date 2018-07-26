@@ -18,7 +18,7 @@ public class DBConnection {
     public static String Db_name = "ProjectAndroid";
     static Context mcontext;
     public static Connection Conn = null;
-    public static String Server_ip = "192.168.107.79:1433;";
+    public static String Server_ip = "192.168.107.81:1433;";
 
     public static Connection Getconnection() {
 

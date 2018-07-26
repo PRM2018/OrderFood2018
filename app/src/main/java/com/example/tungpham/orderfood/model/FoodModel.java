@@ -46,6 +46,7 @@ public class FoodModel {
                 food.setRn(rs.getInt("Row"));
                 food.setFoodName(rs.getString("foodName"));
                 food.setFoodPrice(rs.getFloat("foodPrice"));
+                food.setFoodID(rs.getInt("foodId"));
                 lstFood.add(food);
             }
         }catch (Exception ex){

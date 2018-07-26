@@ -51,7 +51,7 @@ public class CustomerOrderAdapter extends ArrayAdapter<CustomerOrder> {
         viewHolder.rn.setText(String.valueOf(cusOrder.getRn()));
         viewHolder.foodName.setText(cusOrder.getFoodName());
         viewHolder.quantity.setText(String.valueOf(cusOrder.getQuantity()));
-        viewHolder.price.setText(String.valueOf(cusOrder.getPrice()));
+        viewHolder.price.setText(String.valueOf(cusOrder.getPrice()*cusOrder.getQuantity()));
 
         return convertView;
     }
