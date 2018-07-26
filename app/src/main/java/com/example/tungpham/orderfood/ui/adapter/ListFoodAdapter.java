@@ -35,10 +35,10 @@ public class ListFoodAdapter extends ArrayAdapter<Food> {
         ViewHolder viewHolder;
         if(convertView == null){
             viewHolder = new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_list_food,parent,false);
-            viewHolder.foodNo = (TextView)convertView.findViewById(R.id.tv_food_no);
-            viewHolder.foodName = (TextView)convertView.findViewById(R.id.tv_food_name);
-            viewHolder.foodPrice = (TextView) convertView.findViewById(R.id.tv_food_price);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_admin,parent,false);
+            viewHolder.foodNo = (TextView)convertView.findViewById(R.id.tv_item_no);
+            viewHolder.foodName = (TextView)convertView.findViewById(R.id.tv_item_name);
+            viewHolder.foodQuantity = (TextView) convertView.findViewById(R.id.iv_item_number);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
@@ -46,13 +46,13 @@ public class ListFoodAdapter extends ArrayAdapter<Food> {
         final Food food = (Food)getItem(position);
         viewHolder.foodNo.setText(String.valueOf(food.getFoodID()));
         viewHolder.foodName.setText(food.getFoodName().toString());
-        viewHolder.foodPrice.setText(""+food.getFoodPrice());
+        viewHolder.foodQuantity.setText(""+food.getFoodQuantity());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EditFoodActivity.class);
-                intent.putExtra("eId", food.getFoodID());
+                intent.putExtra("fId", food.getFoodID());
                 context.startActivity(intent);
             }
         });
@@ -61,6 +61,6 @@ public class ListFoodAdapter extends ArrayAdapter<Food> {
     }
 
     public class ViewHolder{
-        TextView foodNo, foodName,foodPrice;
+        TextView foodNo, foodName,foodQuantity;
     }
 }

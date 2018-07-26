@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         app:tabIndicatorColor="@color/colorPrimaryDark"
         app:tabIndicatorHeight="2dp"
-        app:tabMode="fixed"/>
+        app:tabMode="fixed">
 
         <android.support.design.widget.TabItem
             android:id="@+id/tab_employee"

@@ -14,6 +14,7 @@ import com.example.tungpham.orderfood.R;
 import com.example.tungpham.orderfood.entity.Employee;
 import com.example.tungpham.orderfood.model.EmployeeTypeModel;
 import com.example.tungpham.orderfood.ui.activity.EditEmployeeActivity;
+import com.example.tungpham.orderfood.ui.activity.ProfileActivity;
 
 import java.util.List;
 
@@ -35,10 +36,10 @@ public class ListEmployeeAdapter  extends ArrayAdapter<Employee> {
         ViewHolder viewHolder;
         if(convertView == null){
             viewHolder = new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_list_employee,parent,false);
-            viewHolder.empNo = (TextView)convertView.findViewById(R.id.tv_emp_no);
-            viewHolder.empName = (TextView)convertView.findViewById(R.id.tv_emp_name);
-            viewHolder.empRoleName = (TextView) convertView.findViewById(R.id.tv_emp_role);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_admin,parent,false);
+            viewHolder.empNo = (TextView)convertView.findViewById(R.id.tv_item_no);
+            viewHolder.empName = (TextView)convertView.findViewById(R.id.tv_item_name);
+            viewHolder.empRoleName = (TextView) convertView.findViewById(R.id.iv_item_number);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
@@ -52,16 +53,6 @@ public class ListEmployeeAdapter  extends ArrayAdapter<Employee> {
         // Column role
         EmployeeTypeModel etm=new EmployeeTypeModel();
         viewHolder.empRoleName.setText(etm.getEmpTypeName(emp.getEmpType()));
-
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, EditEmployeeActivity.class);
-                intent.putExtra("eId", emp.getEmpID());
-                context.startActivity(intent);
-            }
-        });
-
         return convertView;
     }
 

@@ -25,4 +25,15 @@
     <string name="tv_new_employee">New Employee</string>
     <string name="et_name">Name:</string>
     <string name="btn_add_new_employee">Add New Employee</string>
+    <string name="tv_new_food">New Food</string>
+    <string name="tv_add_food_price">Price:</string>
+    <string name="tv_add_food_description">Description:</string>
+    <string name="btn_add_new_food">Add New Food</string>
+    <string name="btn_edit_food_confirm">Confirm</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="tv_edit_food_sample_quantity">40</string>
+    <string name="btn_add_more_food">Add</string>
+    <string name="tv_total_label">Total:</string>
+    <string name="tv_total_price">400000</string>
+    <string name="tv_total_currency">VND</string>
 </resources>

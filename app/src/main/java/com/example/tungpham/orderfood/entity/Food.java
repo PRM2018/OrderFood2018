@@ -15,6 +15,14 @@ public class Food {
     public Food() {
     }
 
+    public Food(String foodName, int foodQuantity, float foodPrice, String foodIMG, String foodDescription) {
+        this.foodName = foodName;
+        this.foodQuantity = foodQuantity;
+        this.foodPrice = foodPrice;
+        this.foodIMG = foodIMG;
+        this.foodDescription = foodDescription;
+    }
+
     public Food(int foodID, String foodName, int foodQuantity, float foodPrice, String foodIMG, String foodDescription) {
         this.foodID = foodID;
         this.foodName = foodName;

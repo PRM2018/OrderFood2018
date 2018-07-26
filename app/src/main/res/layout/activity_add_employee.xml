@@ -16,12 +16,12 @@
 
     <EditText
         android:id="@+id/et_add_employee_name"
+        style="@style/AddEmployeeEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_add_employee_label"
         android:hint="@string/et_name"
-        android:inputType="text"
-        style="@style/AddEmployeeEditText"/>
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/tv_label_role"
@@ -41,21 +41,21 @@
 
     <EditText
         android:id="@+id/et_add_employee_address"
+        style="@style/AddEmployeeEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/spinner_role"
         android:hint="@string/tv_label_address"
-        android:inputType="text"
-        style="@style/AddEmployeeEditText"/>
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/et_add_employee_phone"
+        style="@style/AddEmployeeEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_add_employee_address"
         android:hint="@string/tv_label_phone_number"
-        android:inputType="phone"
-        style="@style/AddEmployeeEditText"/>
+        android:inputType="phone" />
 
     <Button
         android:id="@+id/btn_add_new_employee"

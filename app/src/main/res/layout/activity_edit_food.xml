@@ -1,9 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundTransparentGreen"
     tools:context=".ui.activity.EditFoodActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_edit_food_name"
+        style="@style/AddEmployeeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_food_name" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_edit_food_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_edit_food_name"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_margin="15dp"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/tv_edit_food_quantity"
+            style="@style/AddEmployeeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/tv_edit_food_sample_quantity" />
+
+        <EditText
+            android:id="@+id/et_add_food_quantity"
+            style="@style/AddEmployeeEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:hint="@string/tv_food_order_quantity"
+            android:inputType="number"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btn_edit_quantity_food"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_add_more_food"/>
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/et_add_food_price"
+        style="@style/AddEmployeeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_edit_food_quantity"
+        android:hint="@string/tv_add_food_price"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/et_add_food_description"
+        style="@style/AddEmployeeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_food_price"
+        android:hint="@string/tv_add_food_description"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_add_food_description"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_edit_food"
+            style="@style/AddEmployeeActivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_edit_food_confirm" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_cancel"
+            style="@style/AddEmployeeActivity"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
