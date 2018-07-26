@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ListView;
+
 import com.example.tungpham.orderfood.R;
 import com.example.tungpham.orderfood.entity.Food;
 import com.example.tungpham.orderfood.model.FoodModel;
@@ -24,7 +25,7 @@ public class AddOrderFoodActivity extends AppCompatActivity {
     private Button btnAdd;
     private ArrayList<Integer> quantityList;
 
-    private ArrayList<Integer>  quantityListID;
+    private ArrayList<Integer> quantityListID;
 
     private Map<String, Integer> map = new HashMap<>();
 
@@ -43,6 +44,8 @@ public class AddOrderFoodActivity extends AppCompatActivity {
             setResult(RESULT_OK, returnIntent);
             finish();
         });
+
+        findViewById(R.id.btn_order_cancel).setOnClickListener(v -> finish());
     }
 
     private void setAdapter() {
@@ -55,7 +58,6 @@ public class AddOrderFoodActivity extends AppCompatActivity {
         quantityList = adapter.getQuantityList();
 
         quantityListID = adapter.getQuantityListID();
-
 
 
     }

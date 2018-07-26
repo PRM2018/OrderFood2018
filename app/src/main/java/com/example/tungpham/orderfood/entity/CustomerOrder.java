@@ -9,6 +9,7 @@ public class CustomerOrder {
     private String foodName;
     private int quantity;
     private float price;
+    private String cusName;
 
     public CustomerOrder() {
     }
@@ -50,5 +51,13 @@ public class CustomerOrder {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public String getCusName() {
+        return cusName;
+    }
+
+    public void setCusName(String cusName) {
+        this.cusName = cusName;
     }
 }

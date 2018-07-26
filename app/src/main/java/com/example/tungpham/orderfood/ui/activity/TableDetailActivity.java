@@ -2,6 +2,7 @@ package com.example.tungpham.orderfood.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ public class TableDetailActivity extends AppCompatActivity {
     private TableModel tm;
     private int cusID;
     private int tableID;
+    private ArrayList<CustomerOrder> arrOrder = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,7 @@ public class TableDetailActivity extends AppCompatActivity {
     private void setAdapter(int cusID, int tableID) {
         ListView listView = findViewById(R.id.lv_food_by_table);
         CustomerModel cm = new CustomerModel();
-        ArrayList<CustomerOrder> arrOrder = cm.getListOrderByCustomer(cusID, tableID);
+        arrOrder = cm.getListOrderByCustomer(cusID, tableID);
         CustomerOrderAdapter orderAdapter =
                 new CustomerOrderAdapter(this, R.layout.item_food_order, arrOrder);
         listView.setAdapter(orderAdapter);
@@ -92,5 +94,12 @@ public class TableDetailActivity extends AppCompatActivity {
         }
         setAdapter(cusID,tableID);
 
+    }
+
+    public void checkOutBtn(View v){
+        Intent intent = new Intent(this,CheckoutActivity.class);
+        intent.putExtra("cusID",cusID);
+        intent.putExtra("tableID",tableID);
+        startActivity(intent);
     }
 }

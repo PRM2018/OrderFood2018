@@ -120,6 +120,7 @@ public class CustomerModel {
                 cusOrder.setFoodName(rs.getString("foodName"));
                 cusOrder.setQuantity(rs.getInt("orderQuantity"));
                 cusOrder.setPrice(rs.getFloat("foodPrice"));
+                cusOrder.setCusName(rs.getString("customeName"));
                 lstOrder.add(cusOrder);
             }
         } catch (Exception ex) {
@@ -218,5 +219,46 @@ public class CustomerModel {
             closeConnection(con,ps,rs);
         }
         return quantity;
+    }
+
+    public boolean checkOutCus(int cusID, int tableID, double total){
+        Connection con = null;
+        PreparedStatement ps = null;
+        boolean check = false;
+        try{
+            String sql = "update CustomerTBL set total = ?, checkOut = 0 where customId = ? and tableId = ?";
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            ps.setDouble(1,total);
+            ps.setInt(2,cusID);
+            ps.setInt(3,tableID);
+            ps.executeUpdate();
+            check = true;
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }finally {
+            closeConnection(con,ps,null);
+        }
+        return  check;
+    }
+
+
+    public boolean checkOutTable(int tableID){
+        Connection con = null;
+        PreparedStatement ps = null;
+        boolean check = false;
+        try{
+            String sql = "update TableTBL set tableStatus = 0 where tableId = ?";
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,tableID);
+            ps.executeUpdate();
+            check = true;
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }finally {
+            closeConnection(con,ps,null);
+        }
+        return  check;
     }
 }
