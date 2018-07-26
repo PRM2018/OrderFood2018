@@ -36,4 +36,5 @@
     <string name="tv_total_label">Total:</string>
     <string name="tv_total_price">400000</string>
     <string name="tv_total_currency">VND</string>
+    <string name="tv_default_total">0</string>
 </resources>

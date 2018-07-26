@@ -5,12 +5,14 @@ package com.example.tungpham.orderfood.entity;
  */
 
 public class Food {
+    private int rn;
     private int foodID;
     private String foodName;
     private int foodQuantity;
     private float foodPrice;
     private String foodIMG;
     private String foodDescription;
+    private int extraQuantity;
 
     public Food() {
     }
@@ -78,5 +80,35 @@ public class Food {
 
     public void setFoodDescription(String foodDescription) {
         this.foodDescription = foodDescription;
+    }
+
+    public int getRn() {
+        return rn;
+    }
+
+    public void setRn(int rn) {
+        this.rn = rn;
+    }
+
+    public int getExtraQuantity() {
+        return extraQuantity;
+    }
+
+    public void setExtraQuantity(int extraQuantity) {
+        this.extraQuantity = extraQuantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "rn=" + rn +
+                ", foodID=" + foodID +
+                ", foodName='" + foodName + '\'' +
+                ", foodQuantity=" + foodQuantity +
+                ", foodPrice=" + foodPrice +
+                ", foodIMG='" + foodIMG + '\'' +
+                ", foodDescription='" + foodDescription + '\'' +
+                ", extraQuantity=" + extraQuantity +
+                '}';
     }
 }

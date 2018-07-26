@@ -10,6 +10,7 @@ public class Employee {
     private String empAddress;
     private String empPhone;
     private int empType;
+    private String roleName;
 
     public Employee() {
     }
@@ -65,5 +66,13 @@ public class Employee {
     @Override
     public String toString() {
         return  empName;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

@@ -14,11 +14,15 @@ import java.sql.SQLException;
 
 public class DBConnection {
     public static String User_name = "sa";
-    public static String User_pass = "123";
+    public static String User_pass = "sa";
     public static String Db_name = "ProjectAndroid";
     static Context mcontext;
     public static Connection Conn = null;
+<<<<<<< .mine
     public static String Server_ip = "192.168.107.89:1433;";
+=======
+    public static String Server_ip = "192.168.107.81:1433;";
+>>>>>>> .theirs
 
     public static Connection Getconnection() {
 

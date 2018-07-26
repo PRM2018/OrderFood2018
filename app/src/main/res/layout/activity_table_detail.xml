@@ -11,12 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_table_detail_cus_id_base"
-        style="@style/TableDetailTextView"/>
+        style="@style/TableDetailTextView"
+        android:layout_margin="10dp"/>
 
     <!--Format của TV Customer: ID: xxx - Name: xxx-->
 
-    <include
-        layout="@layout/item_food_order"
+    <include layout="@layout/item_food_order"
         android:id="@+id/item_food_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,21 +26,23 @@
         android:id="@+id/lv_food_by_table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btn_add_food"
-        android:layout_below="@id/item_food_order"/>
+        android:layout_below="@id/item_food_order"
+        android:layout_above="@id/btn_add_food"/>
 
     <Button
         android:id="@+id/btn_add_food"
+        style="@style/TableDetailButtonAddFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@id/btn_checkout"
-        style="@style/TableDetailButtonAddFood"/>
+        android:onClick="addNewFood" />
 
     <Button
         android:id="@+id/btn_checkout"
+        style="@style/TableDetailButtonCheckout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TableDetailButtonCheckout"/>
+        android:onClick="checkOutBtn" />
 
 </RelativeLayout>
