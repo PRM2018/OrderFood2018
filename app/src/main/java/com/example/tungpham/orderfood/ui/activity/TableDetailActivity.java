@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.tungpham.orderfood.R;
@@ -16,8 +17,12 @@ import com.example.tungpham.orderfood.ui.adapter.CustomerOrderAdapter;
 import java.util.ArrayList;
 
 public class TableDetailActivity extends AppCompatActivity {
-    private TableModel tm;
+
+    private Button btnAddFood;
+    private Button btnCheckout;
     private TextView textView;
+
+    private TableModel tm;
     private int cusID;
 
     @Override
@@ -34,6 +39,14 @@ public class TableDetailActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.tv_customer);
         textView.setText(customer.getCusName());
         setAdapter(cusID, tableID);
+
+        btnAddFood = findViewById(R.id.btn_add_food);
+        btnCheckout = findViewById(R.id.btn_checkout);
+        int roleID = intent.getIntExtra("roleID", 2);
+        if(roleID == 3) {
+            btnAddFood.setVisibility(View.GONE);
+            btnCheckout.setVisibility(View.GONE);
+        }
     }
 
     private void setAdapter(int cusID, int tableID) {

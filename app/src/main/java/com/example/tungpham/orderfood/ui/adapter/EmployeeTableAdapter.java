@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.tungpham.orderfood.R;
 import com.example.tungpham.orderfood.entity.Table;
 import com.example.tungpham.orderfood.model.CustomerModel;
 import com.example.tungpham.orderfood.model.TableModel;
-import com.example.tungpham.orderfood.ui.activity.CreateCustomerActivity;
 import com.example.tungpham.orderfood.ui.activity.TableDetailActivity;
-import com.example.tungpham.orderfood.ui.activity.WaiterActivity;
-
 import java.util.List;
 
 /**
@@ -34,10 +28,16 @@ public class EmployeeTableAdapter extends ArrayAdapter<Table> {
     private int resource;
     private List<Table> arrTable;
     private int tableID;
+    private int roleID;
 
-    public EmployeeTableAdapter(@NonNull Context context, int resource, @NonNull List<Table> objects) {
+    public void setRoleID(int roleID) {
+        this.roleID = roleID;
+    }
+
+    public EmployeeTableAdapter(@NonNull Context context, int resource,
+            @NonNull List<Table> objects) {
         super(context, resource, objects);
-        this.context= context;
+        this.context = context;
         this.resource = resource;
         this.arrTable = arrTable;
     }
@@ -46,14 +46,14 @@ public class EmployeeTableAdapter extends ArrayAdapter<Table> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ViewHolder viewHolder;
-        if (convertView == null){
+        if (convertView == null) {
             viewHolder = new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_table,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_table, parent, false);
             viewHolder.tableNo = (TextView) convertView.findViewById(R.id.tv_table_no);
             viewHolder.tableName = (TextView) convertView.findViewById(R.id.tv_table_name);
             viewHolder.tableStatus = (ImageView) convertView.findViewById(R.id.iv_table_check);
             convertView.setTag(viewHolder);
-        }else{
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
@@ -62,27 +62,24 @@ public class EmployeeTableAdapter extends ArrayAdapter<Table> {
         viewHolder.tableNo.setText(String.valueOf(table.getTableID()));
         viewHolder.tableName.setText(table.getTableName());
         if (table.getTableStatus() == 1) {
-            Log.d("Adapter", "Get status");
             viewHolder.tableStatus.setImageResource(R.drawable.checked_checkbox);
-            Log.d("Adapter", "Get status 1");
         } else {
             viewHolder.tableStatus.setImageResource(R.drawable.unchecked_checkbox);
-            Log.d("Adapter", "Get status 2");
         }
 
         convertView.setOnClickListener(v -> {
-            if(table.getTableStatus() == 1){
+            if (table.getTableStatus() == 1) {
                 CustomerModel cm = new CustomerModel();
-                int cusID = cm.getCusID(table.getTableID(),2);
+                int cusID = cm.getCusID(table.getTableID(), 2);
                 Intent intent = new Intent(context, TableDetailActivity.class);
+                intent.putExtra("roleID", roleID);
                 intent.putExtra("tableID", table.getTableID());
                 intent.putExtra("TableName", table.getTableName());
-                intent.putExtra("cusID",cusID);
+                intent.putExtra("cusID", cusID);
                 context.startActivity(intent);
-            }else{
+            } else {
                 showDialog();
             }
-
         });
 
         return convertView;
@@ -93,32 +90,35 @@ public class EmployeeTableAdapter extends ArrayAdapter<Table> {
         ImageView tableStatus;
     }
 
-    private void showDialog(){
+    private void showDialog() {
         CustomerModel cm = new CustomerModel();
         TableModel tm = new TableModel();
         Dialog dialog = new Dialog(getContext());
         dialog.setTitle("");
         dialog.setContentView(R.layout.activity_create_customer);
-        TextView tableTv = (TextView)dialog.findViewById(R.id.tv_table_id);
+        TextView tableTv = (TextView) dialog.findViewById(R.id.tv_table_id);
         tableTv.setText(String.valueOf(tableID));
-        Button acceptBtn = (Button)dialog.findViewById(R.id.btn_accept);
-        Button cancelBtn = (Button)dialog.findViewById(R.id.btn_cancel);
+        Button acceptBtn = (Button) dialog.findViewById(R.id.btn_accept);
+        Button cancelBtn = (Button) dialog.findViewById(R.id.btn_cancel);
         acceptBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int tableID = Integer.parseInt(((TextView)dialog.findViewById(R.id.tv_table_id)).getText().toString());
-                String cusName = ((TextView)dialog.findViewById(R.id.tv_cus_name)).getText().toString();
-                if(cusName.isEmpty() || cusName.length() == 0){
-                    ((TextView)dialog.findViewById(R.id.tv_cus_name)).setError("Name customer is required!");
-                }else{
-                    boolean check = cm.insertNewCustomer(cusName,tableID);
-                    if(check){
-                        boolean updateTableStatus = tm.updateStatusTable(tableID,1);
-                        boolean updateCusStatus = cm.updateCusStatus(2,0,tableID);
-                        int cusID = cm.getCusID(tableID,2);
-                        Intent intent = new Intent(getContext(),TableDetailActivity.class);
-                        intent.putExtra("cusID",cusID);
-                        intent.putExtra("tableID",tableID);
+                int tableID = Integer.parseInt(
+                        ((TextView) dialog.findViewById(R.id.tv_table_id)).getText().toString());
+                String cusName =
+                        ((TextView) dialog.findViewById(R.id.tv_cus_name)).getText().toString();
+                if (cusName.isEmpty() || cusName.length() == 0) {
+                    ((TextView) dialog.findViewById(R.id.tv_cus_name)).setError(
+                            "Name customer is required!");
+                } else {
+                    boolean check = cm.insertNewCustomer(cusName, tableID);
+                    if (check) {
+                        boolean updateTableStatus = tm.updateStatusTable(tableID, 1);
+                        boolean updateCusStatus = cm.updateCusStatus(2, 0, tableID);
+                        int cusID = cm.getCusID(tableID, 2);
+                        Intent intent = new Intent(getContext(), TableDetailActivity.class);
+                        intent.putExtra("cusID", cusID);
+                        intent.putExtra("tableID", tableID);
                         context.startActivity(intent);
                     }
                 }

@@ -1,40 +1,35 @@
 package com.example.tungpham.orderfood.ui.activity;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-
 import com.example.tungpham.orderfood.R;
 import com.example.tungpham.orderfood.entity.Employee;
 import com.example.tungpham.orderfood.entity.Table;
 import com.example.tungpham.orderfood.model.EmployeeModel;
 import com.example.tungpham.orderfood.model.TableModel;
 import com.example.tungpham.orderfood.ui.adapter.EmployeeTableAdapter;
-
 import java.util.ArrayList;
 
 public class WaiterActivity extends AppCompatActivity {
-    private FloatingActionButton fabAddTable;
 
     private int empID;
-    private Employee emp;
-    private EmployeeModel empDAO;
-    private TableModel tableDAO;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiter);
 
-
         Intent intent = getIntent();
         empID = intent.getIntExtra("empID", 1);
-
+        Employee employee = new EmployeeModel().getEmployeeProfileByID(empID);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) actionBar.setTitle(employee.getEmpName());
         setTableAdapter();
     }
 
@@ -55,13 +50,12 @@ public class WaiterActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void setTableAdapter(){
+    public void setTableAdapter() {
         ListView listView = (ListView) findViewById(R.id.lv_table_list);
         TableModel tableModel = new TableModel();
         ArrayList<Table> arrTable = tableModel.getAllTable();
-        EmployeeTableAdapter tableAdapter = new EmployeeTableAdapter(this,R.layout.item_table,arrTable);
+        EmployeeTableAdapter tableAdapter =
+                new EmployeeTableAdapter(this, R.layout.item_table, arrTable);
         listView.setAdapter(tableAdapter);
     }
-
-
 }

@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_table_detail_cus_id_base"
-        style="@style/TableDetailTextView"/>
+        style="@style/TableDetailTextView"
+        android:layout_margin="10dp"/>
 
     <!--Format của TV Customer: ID: xxx - Name: xxx-->
 

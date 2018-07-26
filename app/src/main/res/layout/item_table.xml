@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/tv_table_no"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/vertical_guideline_1"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
     <TextView
         android:id="@+id/tv_table_name"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="40dp"
         android:gravity="center_vertical"
         android:text="@string/tv_table_name"
         app:layout_constraintBottom_toBottomOf="parent"

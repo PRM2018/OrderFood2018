@@ -8,6 +8,42 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LoginActivity" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/animation_slide_left_to_right</item>
+        <item name="android:windowExitAnimation">@anim/animation_slide_right_to_left</item>
+    </style>
+
+    <style name="LoginTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/LoginActivity</item>
+    </style>
+
+    <style name="EmployeeActivity" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/animation_slide_right_to_left</item>
+        <item name="android:windowExitAnimation">@anim/animation_slide_left_to_right</item>
+    </style>
+
+    <style name="EmployeeTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/EmployeeActivity</item>
+    </style>
+
+    <style name="TableDetailActivity" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/animation_slide_up</item>
+        <item name="android:windowExitAnimation">@anim/animation_slide_down</item>
+    </style>
+
+    <style name="TableDetailTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/TableDetailActivity</item>
+    </style>
+
+    <style name="FABAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/animation_slide_from_bottom_right</item>
+        <item name="android:windowExitAnimation">@anim/animation_slide_from_top_left</item>
+    </style>
+
+    <style name="FABTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/FABAnimation</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
