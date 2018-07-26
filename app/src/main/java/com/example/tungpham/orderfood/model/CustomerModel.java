@@ -131,6 +131,33 @@ public class CustomerModel {
         return lstOrder;
     }
 
+    public String checkListOrderByCustomer(int cusID, int tableID) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String check = "";
+        String sql = "select food.foodName from CustomerTBL cus \n" +
+                "left join OrderTBL ord on cus.customId = ord.customerId \n" +
+                "left join FoodTBL food on ord.foodId = food.foodId\n" +
+                "left join TableTBL tbl on tbl.tableId = cus.tableId\n" +
+                "where cus.customId = ? and cus.tableId = ? and cus.checkOut = 2 and tbl.tableStatus = 1 order by ord.orderDate asc\n";
+        try {
+            con = DBConnection.Getconnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, cusID);
+            ps.setInt(2, tableID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                check = rs.getString(1);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            closeConnection(con, ps, rs);
+        }
+        return check;
+    }
+
     public boolean updateOrderCustomer(int cusID, int foodID, int quantity) {
         boolean check = false;
         Connection con = null;

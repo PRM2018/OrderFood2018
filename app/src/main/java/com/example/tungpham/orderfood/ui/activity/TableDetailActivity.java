@@ -38,14 +38,13 @@ public class TableDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         tableID = intent.getIntExtra("tableID", 1);
         cusID = intent.getIntExtra("cusID", 1);
-        ArrayList<CustomerOrder> arrCheck = new ArrayList<>();
-        arrCheck = cm.getListOrderByCustomer(cusID, tableID);
+        String arrCheck = cm.checkListOrderByCustomer(cusID, tableID);
         tm = new TableModel();
         Customer customer = new Customer();
         customer = tm.getCusName(cusID, tableID);
         textView = (TextView) findViewById(R.id.tv_customer);
         textView.setText(customer.getCusName());
-        if(arrCheck.size() != 0){
+        if(arrCheck != null){
             setAdapter(cusID, tableID);
         }
 

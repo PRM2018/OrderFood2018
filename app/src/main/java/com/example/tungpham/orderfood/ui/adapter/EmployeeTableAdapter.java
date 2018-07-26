@@ -78,7 +78,7 @@ public class EmployeeTableAdapter extends ArrayAdapter<Table> {
                 intent.putExtra("cusID", cusID);
                 context.startActivity(intent);
             } else {
-                showDialog();
+                showDialog(position);
             }
         });
 
@@ -90,7 +90,9 @@ public class EmployeeTableAdapter extends ArrayAdapter<Table> {
         ImageView tableStatus;
     }
 
-    private void showDialog() {
+    private void showDialog(int position) {
+        Table table = (Table) getItem(position);
+        tableID = table.getTableID();
         CustomerModel cm = new CustomerModel();
         TableModel tm = new TableModel();
         Dialog dialog = new Dialog(getContext());
