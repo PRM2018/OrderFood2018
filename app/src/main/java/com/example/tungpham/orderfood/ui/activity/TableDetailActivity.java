@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.example.tungpham.orderfood.R;
 import com.example.tungpham.orderfood.entity.Customer;
 import com.example.tungpham.orderfood.entity.CustomerOrder;
 import com.example.tungpham.orderfood.model.CustomerModel;
 import com.example.tungpham.orderfood.model.TableModel;
 import com.example.tungpham.orderfood.ui.adapter.CustomerOrderAdapter;
+
 import java.util.ArrayList;
 
 public class TableDetailActivity extends AppCompatActivity {
@@ -32,6 +34,10 @@ public class TableDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_detail);
+        CustomerModel cm = new CustomerModel();
+        ArrayList<CustomerOrder> arrCheck = new ArrayList<>();
+        arrCheck = cm.getListOrderByCustomer(cusID, tableID);
+
 
         Intent intent = getIntent();
         tableID = intent.getIntExtra("tableID", 1);
@@ -41,12 +47,14 @@ public class TableDetailActivity extends AppCompatActivity {
         customer = tm.getCusName(cusID, tableID);
         textView = (TextView) findViewById(R.id.tv_customer);
         textView.setText(customer.getCusName());
-        setAdapter(cusID, tableID);
+        if(arrCheck.size() != 0){
+            setAdapter(cusID, tableID);
+        }
 
         btnAddFood = findViewById(R.id.btn_add_food);
         btnCheckout = findViewById(R.id.btn_checkout);
         int roleID = intent.getIntExtra("roleID", 2);
-        if(roleID == 3) {
+        if (roleID == 3) {
             btnAddFood.setVisibility(View.GONE);
             btnCheckout.setVisibility(View.GONE);
         }
@@ -75,31 +83,31 @@ public class TableDetailActivity extends AppCompatActivity {
                 ArrayList<Integer> listQuantity = data.getIntegerArrayListExtra("listOrder");
                 ArrayList<Integer> listIdFood = data.getIntegerArrayListExtra("listOrderFoodID");
 
-                for (int i = 0; i < listQuantity.size();i++){
-                    if(listQuantity.get(i) != 0){
+                for (int i = 0; i < listQuantity.size(); i++) {
+                    if (listQuantity.get(i) != 0) {
                         int idFood = listIdFood.get(i);
                         int quantity = listQuantity.get(i);
 
-                        int check = cm.checkExistOrder(cusID,idFood);
-                        if(check == 0){
-                            boolean insert = cm.insertNewOrder(cusID,idFood,quantity);
-                        }else if(check > 0){
-                            int oldQuantity = cm.getQuantityOrder(cusID,idFood);
-                            boolean update = cm.updateOrderCustomer(cusID,idFood,oldQuantity+quantity);
+                        int check = cm.checkExistOrder(cusID, idFood);
+                        if (check == 0) {
+                            boolean insert = cm.insertNewOrder(cusID, idFood, quantity);
+                        } else if (check > 0) {
+                            int oldQuantity = cm.getQuantityOrder(cusID, idFood);
+                            boolean update = cm.updateOrderCustomer(cusID, idFood, oldQuantity + quantity);
                         }
 
                     }
                 }
             }
         }
-        setAdapter(cusID,tableID);
+        setAdapter(cusID, tableID);
 
     }
 
-    public void checkOutBtn(View v){
-        Intent intent = new Intent(this,CheckoutActivity.class);
-        intent.putExtra("cusID",cusID);
-        intent.putExtra("tableID",tableID);
+    public void checkOutBtn(View v) {
+        Intent intent = new Intent(this, CheckoutActivity.class);
+        intent.putExtra("cusID", cusID);
+        intent.putExtra("tableID", tableID);
         startActivity(intent);
     }
 }

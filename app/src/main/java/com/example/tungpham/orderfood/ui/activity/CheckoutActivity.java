@@ -29,6 +29,10 @@ public class CheckoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
+        CustomerModel cm = new CustomerModel();
+        ArrayList<CustomerOrder> arrCheck = new ArrayList<>();
+        arrCheck = cm.getListOrderByCustomer(cusID, tableID);
+
         Intent intent = getIntent();
         tableID = intent.getIntExtra("tableID", 1);
         cusID = intent.getIntExtra("cusID", 1);
@@ -37,7 +41,9 @@ public class CheckoutActivity extends AppCompatActivity {
         customer = tm.getCusName(cusID, tableID);
         textView = (TextView) findViewById(R.id.tv_customer);
         textView.setText(customer.getCusName());
-        setAdapter(cusID, tableID);
+        if (arrCheck.size() != 0) {
+            setAdapter(cusID, tableID);
+        }
         total = 0;
         for (int i = 0; i < arrOrder.size(); i++) {
             double amout = arrOrder.get(i).getPrice() * arrOrder.get(i).getQuantity();
@@ -47,7 +53,6 @@ public class CheckoutActivity extends AppCompatActivity {
         textViewTotal.setText(String.valueOf(total));
 
         findViewById(R.id.btn_checkout).setOnClickListener(v -> {
-            CustomerModel cm = new CustomerModel();
             boolean updateTable = cm.checkOutTable(tableID);
             boolean updateCus = cm.checkOutCus(cusID, tableID, total);
             Intent finishIntent = new Intent(this, WaiterActivity.class);
