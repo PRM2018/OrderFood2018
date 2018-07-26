@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.tungpham.orderfood.R;
-import com.example.tungpham.orderfood.entity.Customer;
 import com.example.tungpham.orderfood.entity.CustomerOrder;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public class CustomerOrderAdapter extends ArrayAdapter<CustomerOrder> {
             viewHolder.rn = (TextView) convertView.findViewById(R.id.tv_food_id);
             viewHolder.foodName = (TextView) convertView.findViewById(R.id.tv_food_name);
             viewHolder.quantity = (TextView) convertView.findViewById(R.id.iv_food_quantity);
-            viewHolder.price = (TextView) convertView.findViewById(R.id.iv_food_price);
+            viewHolder.price = (TextView) convertView.findViewById(R.id.tv_food_price);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

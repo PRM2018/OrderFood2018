@@ -35,13 +35,11 @@ public class TableDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_detail);
         CustomerModel cm = new CustomerModel();
-        ArrayList<CustomerOrder> arrCheck = new ArrayList<>();
-        arrCheck = cm.getListOrderByCustomer(cusID, tableID);
-
-
         Intent intent = getIntent();
         tableID = intent.getIntExtra("tableID", 1);
         cusID = intent.getIntExtra("cusID", 1);
+        ArrayList<CustomerOrder> arrCheck = new ArrayList<>();
+        arrCheck = cm.getListOrderByCustomer(cusID, tableID);
         tm = new TableModel();
         Customer customer = new Customer();
         customer = tm.getCusName(cusID, tableID);

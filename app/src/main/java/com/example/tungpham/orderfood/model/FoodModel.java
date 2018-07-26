@@ -37,13 +37,14 @@ public class FoodModel {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String sql = "select * from FoodTBL";
+        String sql = "select ROW_NUMBER() OVER(ORDER BY foodId asc) AS Row,* from FoodTBL";
         try {
             con = DBConnection.Getconnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Food food = new Food();
+                food.setRn(rs.getInt("Row"));
                 food.setFoodID(rs.getInt("foodId"));
                 food.setFoodName(rs.getString("foodName"));
                 food.setFoodQuantity(rs.getInt("foodQuantity"));
